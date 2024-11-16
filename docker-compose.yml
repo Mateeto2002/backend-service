@@ -1,0 +1,15 @@
+version : "3.7"
+
+services : 
+  mono :
+    container_name : mono
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001:4001"
+    networks :
+      - proyecto-app
+
+networks :
+  proyecto-app :
