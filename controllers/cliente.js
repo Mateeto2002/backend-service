@@ -29,6 +29,7 @@ const createCliente = async (req = request,
 
 const getCliente = async (req = request, 
     res = response) => {
+        console.log("trabajando en peticion")
         try{
             const clienteBD = await Cliente.find()
             return res.json(clienteBD)

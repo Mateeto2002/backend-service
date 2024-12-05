@@ -1,15 +1,75 @@
-version : "3.7"
-
 services : 
+  mona :
+    container_name : mona
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001"
+    networks :
+      - proyecto-app
+  
+  mone :
+    container_name : mone
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001"
+    networks :
+      - proyecto-app
+
+  moni :
+    container_name : moni
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001"
+    networks :
+      - proyecto-app
+
   mono :
     container_name : mono
     image: mono:v1
     build:
       context: .
     ports: 
-     - "4001:4001"
+     - "4001"
     networks :
       - proyecto-app
+      
+  monu :
+    container_name : monu
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001"
+    networks :
+      - proyecto-app
+
+  monus :
+    container_name : monus
+    image: mono:v1
+    build:
+      context: .
+    ports: 
+     - "4001"
+    networks :
+      - proyecto-app    
+
+  
+  balanceador-carga:
+    container_name: balanceador-carga
+    image : balanceador-carga:v1
+    build : 
+      context : ./balanceador
+    ports :
+      - "80:80"
+    networks:
+      - proyecto-app 
+
 
 networks :
   proyecto-app :
